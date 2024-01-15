@@ -1,8 +1,12 @@
+import 'package:co3_live/presentation/providers/chat_providers.dart';
 import 'package:co3_live/presentation/widgets/msg_field_box.dart';
 import 'package:co3_live/presentation/widgets/my_msg_bubble.dart';
 import 'package:co3_live/presentation/widgets/my_second_msg_bubble.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+
+import '../../domain/entities/mensaje.dart';
 
 class ChatScreen extends StatelessWidget {
   const ChatScreen({
@@ -27,12 +31,23 @@ class _ChatView extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.end, children: [
           Expanded(
-            child: ListView.builder(
-              itemCount: 50,
-              itemBuilder: (context, index){
-                return (index % 2 == 0)
-                    ?MyMsgBubble()
-                    :SecondMsg();
+            child: Consumer<ChatProvider>(
+              builder: (BuildContext context, ChatProvider cProvider, Widget? child) {
+                return ListView.builder(
+                  itemCount: cProvider.listMensajes.length,
+                  itemBuilder: (BuildContext context, int index){
+                    Mensaje msg = cProvider.listMensajes[index];
+                    return(msg.autor == Autor.yo)
+                        ?MyMsgBubble(msg: msg)
+                        : SecondMsg();
+                  },
+                  /*itemCount: 50,
+                  itemBuilder: (context, index){
+                    return (index % 2 == 0)
+                        ? MyMsgBubble()
+                        : SecondMsg();
+                  },*/
+                );
               },
             ),
           ),

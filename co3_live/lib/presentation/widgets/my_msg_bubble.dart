@@ -1,8 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import '../../domain/entities/mensaje.dart';
+
 class MyMsgBubble extends StatelessWidget {
-  const MyMsgBubble({super.key});
+  final Mensaje msg;
+
+  const MyMsgBubble({super.key, required this.msg});
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +19,7 @@ class MyMsgBubble extends StatelessWidget {
             borderRadius: BorderRadius.circular(15)),
           child: Padding(
             padding: EdgeInsets.symmetric(horizontal: 20.0, vertical: 8.0),
-            child: Text('Mensaje mio',
+            child: Text(msg.texto,
               style: TextStyle(color: esquemaColor.inversePrimary)),
           ),
         ),
