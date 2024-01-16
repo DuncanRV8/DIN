@@ -4,8 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 class MsgFieldBox extends StatelessWidget {
-  //final ValueChanged<String> onValue;
-  const MsgFieldBox({super.key});
+  final ValueChanged<String> onValue;
+  const MsgFieldBox({super.key,required this.onValue});
 
   @override
   Widget build(BuildContext context) {

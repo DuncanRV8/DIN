@@ -28,31 +28,35 @@ class _ChatView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 8.0),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.end, children: [
-          Expanded(
-            child: Consumer<ChatProvider>(
-              builder: (BuildContext context, ChatProvider cProvider, Widget? child) {
-                return ListView.builder(
-                  itemCount: cProvider.listMensajes.length,
-                  itemBuilder: (BuildContext context, int index){
-                    Mensaje msg = cProvider.listMensajes[index];
-                    return(msg.autor == Autor.yo)
-                        ?MyMsgBubble(msg: msg)
-                        : SecondMsg();
-                  },
-                  /*itemCount: 50,
-                  itemBuilder: (context, index){
-                    return (index % 2 == 0)
-                        ? MyMsgBubble()
-                        : SecondMsg();
-                  },*/
-                );
-              },
+      child: Consumer<ChatProvider>(
+        builder: (BuildContext context, ChatProvider value, Widget? child) {
+          return Column(mainAxisAlignment: MainAxisAlignment.end, children: [
+            Expanded(
+              child: Consumer<ChatProvider>(
+                builder: (BuildContext context, ChatProvider cProvider, Widget? child) {
+                  return ListView.builder(
+                    controller: cProvider.chatScrollController,
+                    itemCount: cProvider.listMensajes.length,
+                    itemBuilder: (BuildContext context, int index){
+                      Mensaje msg = cProvider.listMensajes[index];
+                      return(msg.autor == Autor.yo)
+                          ?MyMsgBubble(msg: msg)
+                          : SecondMsg();
+                    },
+                    /*itemCount: 50,
+                    itemBuilder: (context, index){
+                      return (index % 2 == 0)
+                          ? MyMsgBubble()
+                          : SecondMsg();
+                    },*/
+                  );
+                },
+              ),
             ),
-          ),
-          MsgFieldBox()
-      ]),
+            MsgFieldBox(onValue: (cadena) => cProvider.enviarMensaje(cadena),)
+          ]);
+        },
+      ),
     );
   }
 }
