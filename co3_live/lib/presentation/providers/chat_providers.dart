@@ -28,7 +28,7 @@ class ChatProvider extends ChangeNotifier{
   
  Future<Mensaje> recibirMensaje() async {
    final gResp = GetRespuestas();
-   gResp.getHttp();
+   return gResp.getHttp();
  }
 
   void scrollDown() {
