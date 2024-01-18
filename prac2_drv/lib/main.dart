@@ -20,9 +20,6 @@ class MyApp extends StatelessWidget {
         title: 'Duncan Rua',
         theme: theme,
         home: Scaffold(
-          appBar: AppBar(
-            title: Text('Duncan Rua'),
-          ),
           body: Center(
             child: Container(
               child: DiscoverScreen()
