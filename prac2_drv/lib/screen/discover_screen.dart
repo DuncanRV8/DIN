@@ -12,10 +12,26 @@ class DiscoverScreen extends StatelessWidget {
     final discoverProvider = Provider.of<DiscoverProvider>(context);
     return Center(
       child: Container(
-        //child: Text('${discoverProvider.imagePost.length}',style: TextStyle(fontSize: 40),)
         child: discoverProvider.isLoaded
-            ?ImageScrollableView(imagePosts: discoverProvider.imagePost,)
-            :CircularProgressIndicator()
+            ?Stack(
+                children: [
+                  ImageScrollableView(imagePosts: discoverProvider.imagePost),
+                  Positioned(
+                    left: 16,
+                    bottom: 16,
+                    child: Text(
+                        discoverProvider.imagePost.isNotEmpty
+                            ?'${discoverProvider.imagePost[discoverProvider.position].subt}'
+                            :'',
+                      style: const TextStyle(
+                        color: Colors.white,
+                        fontSize: 20,
+                      ),
+                    ),
+                  ),
+                ],
+            )
+            :const CircularProgressIndicator()
       ),
     );
   }
