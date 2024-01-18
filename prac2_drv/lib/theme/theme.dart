@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class AppTheme {
 
 
-  ThemeData gerateThema() {
+  ThemeData generateThema() {
     return ThemeData(
       brightness: Brightness.dark
     );

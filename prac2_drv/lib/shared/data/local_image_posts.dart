@@ -47,6 +47,4 @@ List<Map<String, dynamic>> imagePosts = [
     'likes': 342,
     'views': 3332,
   },
-
-
 ];
