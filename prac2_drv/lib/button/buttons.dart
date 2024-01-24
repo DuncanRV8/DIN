@@ -1,3 +1,4 @@
+import 'package:animate_do/animate_do.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -27,6 +28,20 @@ class ButtonColumn extends StatelessWidget {
           child: Icon(
             Icons.remove_red_eye,
             color: Colors.deepPurple, // Color modificado
+          ),
+        ),
+        SpinPerfect(
+          infinite: true,
+          duration: const Duration(seconds: 2),
+          child: FloatingActionButton(
+            onPressed: () {
+            },
+            backgroundColor: Colors.transparent,
+            elevation: 0.0,
+            child: Icon(
+              Icons.play_circle,
+              color: Colors.green, // Color modificado
+            ),
           ),
         ),
       ],

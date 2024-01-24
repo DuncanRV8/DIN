@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:prac2_drv/button/buttons.dart';
-import 'package:prac2_drv/provider/discover_provider.dart';
+import 'package:prac2_drv/provider/dicover_video_provider.dart';
 import 'package:provider/provider.dart';
 import 'theme/theme.dart';
 import 'screen/discover_screen.dart';
 
 void main() => runApp(
 ChangeNotifierProvider(
-    create: (context) => DiscoverProvider()..loandingListImagePost(),
+    create: (context) => DiscoverProvider()..loandingListVideoPost(),
     child: MyApp(),
   ),
 );
