@@ -15,7 +15,7 @@ List<MenuItem> appMenuItem=[
   MenuItem(
     titulo: "Botones",
     subtitulo: "Catagolo de botones",
-    ruta: '/bottons',
+    ruta: '/buttons',
     icono: Icons.smart_button_outlined),
   MenuItem(
       titulo: "Tarjetas",
