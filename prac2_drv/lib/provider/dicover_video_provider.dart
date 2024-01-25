@@ -7,6 +7,7 @@ class DiscoverProvider extends ChangeNotifier {
   List<VideoPost> _videoPosts = [];
   bool _isLoaded = false;
   int _position = 0;
+  double volumen = 0;
 
   List<VideoPost> get videoPost => _videoPosts;
   bool get isLoaded => _isLoaded;
@@ -21,6 +22,15 @@ class DiscoverProvider extends ChangeNotifier {
 
   void updatePosition(int position) {
     _position = position;
+    notifyListeners();
+  }
+
+  void toggleAudio() {
+    if(volumen > 0) {
+      volumen = 0.0;
+    }else {
+      volumen = 1;
+    }
     notifyListeners();
   }
 }

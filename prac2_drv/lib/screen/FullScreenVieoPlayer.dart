@@ -1,6 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:video_player/video_player.dart';
+
+import '../provider/dicover_video_provider.dart';
 
 class FullScreenVideoPlayer extends StatefulWidget {
   final String url;
@@ -29,16 +32,20 @@ class FullScreenVideoPlayer extends StatefulWidget {
 
     @override
     Widget build(BuildContext context) {
-
-      return (!_controller.value.isInitialized)
-          ? const Center(child: CircularProgressIndicator(color: Colors.blue))
-          : GestureDetector(
-          onTap: (){
-            (_controller.value.isPlaying)
-              ? _controller.pause()
-              :_controller.play();
-          },
-            child: VideoPlayer(_controller));
+      DiscoverProvider dProvider = context.watch<DiscoverProvider>();
+        if((!_controller.value.isInitialized)) {
+          return const Center(child: CircularProgressIndicator(color: Colors.blue));
+        }else {
+          _controller.setVolume(dProvider.volumen);
+          return AspectRatio(aspectRatio: _controller.value.aspectRatio,
+            child: GestureDetector(
+                onTap: (){
+                  _controller.value.isPlaying
+                      ? _controller.pause()
+                      :_controller.play();
+                },
+                child: VideoPlayer(_controller)));
+        }
     }
     @override
     void dispose() {

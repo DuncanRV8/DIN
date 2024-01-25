@@ -1,10 +1,13 @@
 import 'package:animate_do/animate_do.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:prac2_drv/provider/dicover_video_provider.dart';
+import 'package:provider/provider.dart';
 
 class ButtonColumn extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    DiscoverProvider dProvider = context.watch<DiscoverProvider>();
     return Column(
       mainAxisAlignment: MainAxisAlignment.end,
       children: [
@@ -35,6 +38,7 @@ class ButtonColumn extends StatelessWidget {
           duration: const Duration(seconds: 2),
           child: FloatingActionButton(
             onPressed: () {
+              dProvider.toggleAudio();
             },
             backgroundColor: Colors.transparent,
             elevation: 0.0,

@@ -30,7 +30,6 @@ class DiscoverScreen extends StatelessWidget {
                         maxLines: 2,
                         style: const TextStyle(
                           shadows: [Shadow(offset: Offset(2, 2),color: Colors.black,blurRadius: 3)],
-
                           fontSize: 18,
                         ),
                       ),
