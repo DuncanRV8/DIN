@@ -7,6 +7,7 @@ class ButtonScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final esquemaColores = Theme.of(context).colorScheme;
     return Scaffold(
         appBar: AppBar(title: const Text("Pantalla de tarjetas")),
         floatingActionButton: FloatingActionButton(
@@ -65,7 +66,34 @@ class ButtonScreen extends StatelessWidget {
                   label: const Text("TextButton"),
                   icon: const Icon(Icons.accessibility),
                 ),
+                IconButton(
+                    onPressed: () {},
+                    icon: Icon(Icons.access_alarm_rounded)),
+                IconButton(
+                    onPressed: () {},
+                    style: ButtonStyle(
+                        iconColor: MaterialStatePropertyAll(Colors.white),
+                        backgroundColor: MaterialStatePropertyAll(esquemaColores.primary),
+                    ),
+                    icon: Icon(Icons.access_alarm_rounded)
+                ),
+                _CustomButton(),
+
+
           ]),
         ));
     }
 }
+
+class _CustomButton extends StatelessWidget {
+  const _CustomButton({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Material(
+        child: const
+        Text("CustomButton")
+    );
+  }
+}
+
