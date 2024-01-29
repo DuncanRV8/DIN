@@ -21,7 +21,9 @@ class ButtonScreen extends StatelessWidget {
         body: Padding(
           padding: const EdgeInsets.all(10.0),
           child: Wrap(
-              spacing: 10,
+              alignment: WrapAlignment.center,
+              runSpacing: 20,
+              spacing: 40,
               children: [
             ElevatedButton(
               onPressed: () {  },
@@ -31,6 +33,29 @@ class ButtonScreen extends StatelessWidget {
               onPressed: null,
               child: const Text("ElevationButton.off"),
             ),
+                ElevatedButton.icon(
+                  onPressed: () {},
+                  label: const Text("ElevatedButton"),
+                  icon: const Icon(Icons.add_a_photo_outlined),
+                ),
+                FilledButton(
+                  onPressed: () {  },
+                  child: const Text("FilledButton"),
+                ),
+                FilledButton.icon(
+                  onPressed: () {  },
+                  label: const Text("FilledButton"),
+                  icon: const Icon(Icons.favorite_outlined),
+                ),
+                OutlinedButton(
+                  onPressed: () {},
+                  child: const Text("OutlinedButton"),
+                ),
+                OutlinedButton.icon(
+                  onPressed: () {  },
+                  label: const Text("OutlinedButton"),
+                  icon: const Icon(Icons.stacked_line_chart_outlined),
+                ),
           ]),
         ));
     }

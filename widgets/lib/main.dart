@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
       // routerConfig: appRouter,
       routes:appRouter2,
       debugShowCheckedModeBanner: false,
-      theme: AppTheme(colorSeleccionado: 2).generaTema(),
+      theme: AppTheme(colorSeleccionado: 4).generaTema(),
       title: 'Material App',
 
       home: Scaffold(
