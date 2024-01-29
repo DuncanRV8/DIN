@@ -56,6 +56,15 @@ class ButtonScreen extends StatelessWidget {
                   label: const Text("OutlinedButton"),
                   icon: const Icon(Icons.stacked_line_chart_outlined),
                 ),
+                TextButton(
+                  onPressed: () {},
+                  child: const Text("TextButton"),
+                ),
+                TextButton.icon(
+                  onPressed: () {  },
+                  label: const Text("TextButton"),
+                  icon: const Icon(Icons.accessibility),
+                ),
           ]),
         ));
     }
