@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:widgets/config/menu/menu_item.dart';
 import 'package:widgets/presentation/screen/button_screen.dart';
 
@@ -46,6 +47,10 @@ class _CustomList extends StatelessWidget {
       leading: Icon(menuItem.icono, color: esquemaColores.primary),
       trailing: Icon(Icons.arrow_forward_ios_rounded, color: esquemaColores.primary),
       onTap: () {
+        //Navigator de forma 3
+        //context.push(menuItem.ruta);
+
+        //Navigator forma 2
           Navigator.pushNamed(context, menuItem.ruta);
 
          /*
