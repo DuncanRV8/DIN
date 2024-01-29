@@ -90,9 +90,22 @@ class _CustomButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Material(
-        child: const
-        Text("CustomButton")
+    final esquemaColores = Theme.of(context).colorScheme;
+    return ClipRRect(
+      borderRadius: BorderRadius.circular(15),
+      child: Material(
+        color: esquemaColores.primary,
+          child: InkWell(
+            splashColor: Colors.green,
+            //splashFactory: InteractiveInkFeatureFactory(),
+            onTap: () {},
+            child: Padding(
+              padding: EdgeInsets.symmetric(horizontal: 15,vertical: 10),
+              child: Text("CustomButton", style: TextStyle(color:esquemaColores.inversePrimary),
+              ),
+            ),
+          )
+      ),
     );
   }
 }
