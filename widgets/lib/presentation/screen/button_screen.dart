@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:widgets/presentation/screen/screen_gradient.dart';
 
 class ButtonScreen extends StatelessWidget {
   const ButtonScreen({super.key});
@@ -19,68 +20,70 @@ class ButtonScreen extends StatelessWidget {
           },
           child: Icon(Icons.arrow_back_ios),
         ),
-        body: Padding(
-          padding: const EdgeInsets.all(10.0),
-          child: Wrap(
-              alignment: WrapAlignment.center,
-              runSpacing: 20,
-              spacing: 40,
-              children: [
-            ElevatedButton(
-              onPressed: () {  },
-              child: const Text("ElevationButton"),
-            ),
-            ElevatedButton(
-              onPressed: null,
-              child: const Text("ElevationButton.off"),
-            ),
-                ElevatedButton.icon(
-                  onPressed: () {},
-                  label: const Text("ElevatedButton"),
-                  icon: const Icon(Icons.add_a_photo_outlined),
-                ),
-                FilledButton(
-                  onPressed: () {  },
-                  child: const Text("FilledButton"),
-                ),
-                FilledButton.icon(
-                  onPressed: () {  },
-                  label: const Text("FilledButton"),
-                  icon: const Icon(Icons.favorite_outlined),
-                ),
-                OutlinedButton(
-                  onPressed: () {},
-                  child: const Text("OutlinedButton"),
-                ),
-                OutlinedButton.icon(
-                  onPressed: () {  },
-                  label: const Text("OutlinedButton"),
-                  icon: const Icon(Icons.stacked_line_chart_outlined),
-                ),
-                TextButton(
-                  onPressed: () {},
-                  child: const Text("TextButton"),
-                ),
-                TextButton.icon(
-                  onPressed: () {  },
-                  label: const Text("TextButton"),
-                  icon: const Icon(Icons.accessibility),
-                ),
-                IconButton(
+        body: ScreenGradient(
+          child: Padding(
+            padding: const EdgeInsets.all(10.0),
+            child: Wrap(
+                alignment: WrapAlignment.center,
+                runSpacing: 20,
+                spacing: 40,
+                children: [
+              ElevatedButton(
+                onPressed: () {  },
+                child: const Text("ElevationButton"),
+              ),
+              ElevatedButton(
+                onPressed: null,
+                child: const Text("ElevationButton.off"),
+              ),
+                  ElevatedButton.icon(
                     onPressed: () {},
-                    icon: Icon(Icons.access_alarm_rounded)),
-                IconButton(
+                    label: const Text("ElevatedButton"),
+                    icon: const Icon(Icons.add_a_photo_outlined),
+                  ),
+                  FilledButton(
+                    onPressed: () {  },
+                    child: const Text("FilledButton"),
+                  ),
+                  FilledButton.icon(
+                    onPressed: () {  },
+                    label: const Text("FilledButton"),
+                    icon: const Icon(Icons.favorite_outlined),
+                  ),
+                  OutlinedButton(
                     onPressed: () {},
-                    style: ButtonStyle(
-                        iconColor: MaterialStatePropertyAll(Colors.white),
-                        backgroundColor: MaterialStatePropertyAll(esquemaColores.primary),
-                    ),
-                    icon: Icon(Icons.access_alarm_rounded)
-                ),
-                _CustomButton(),
-
-
-          ]),
+                    child: const Text("OutlinedButton"),
+                  ),
+                  OutlinedButton.icon(
+                    onPressed: () {  },
+                    label: const Text("OutlinedButton"),
+                    icon: const Icon(Icons.stacked_line_chart_outlined),
+                  ),
+                  TextButton(
+                    onPressed: () {},
+                    child: const Text("TextButton"),
+                  ),
+                  TextButton.icon(
+                    onPressed: () {  },
+                    label: const Text("TextButton"),
+                    icon: const Icon(Icons.accessibility),
+                  ),
+                  IconButton(
+                      onPressed: () {},
+                      icon: Icon(Icons.access_alarm_rounded)),
+                  IconButton(
+                      onPressed: () {},
+                      style: ButtonStyle(
+                          iconColor: MaterialStatePropertyAll(Colors.white),
+                          backgroundColor: MaterialStatePropertyAll(esquemaColores.primary),
+                      ),
+                      icon: Icon(Icons.access_alarm_rounded)
+                  ),
+                  _CustomButton(),
+          
+          
+            ]),
+          ),
         ));
     }
 }

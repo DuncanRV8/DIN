@@ -9,7 +9,11 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return _HomeView();
+    return Scaffold(
+        appBar: AppBar(
+        title: Text('Catalogo de Widgets'),
+    ),
+    body: _HomeView());
   }
 }
 
@@ -48,10 +52,10 @@ class _CustomList extends StatelessWidget {
       trailing: Icon(Icons.arrow_forward_ios_rounded, color: esquemaColores.primary),
       onTap: () {
         //Navigator de forma 3
-        //context.push(menuItem.ruta);
+        context.push(menuItem.ruta);
 
         //Navigator forma 2
-          Navigator.pushNamed(context, menuItem.ruta);
+          //Navigator.pushNamed(context, menuItem.ruta);
 
          /*
          //Navigator forma 1

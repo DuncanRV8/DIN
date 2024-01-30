@@ -10,20 +10,15 @@ void main() => runApp(MyApp());
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      // routerConfig: appRouter,
+    return MaterialApp.router(
+      routerConfig: appRouter,
+      /*
       routes:appRouter2,
+
+       */
       debugShowCheckedModeBanner: false,
       theme: AppTheme(colorSeleccionado: 4).generaTema(),
       title: 'Material App',
-
-      home: Scaffold(
-        appBar: AppBar(
-          title: Text('Catalogo de Widgets'),
-        ),
-        body: HomeScreen(),
-          ),
-
       );
     }
 }
