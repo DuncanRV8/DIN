@@ -2,12 +2,12 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 List<Map<String,dynamic>> listaParams = [
-  {'elevation':0, 'label': 'Elevation 0'},
-  {'elevation':1, 'label': 'Elevation 1'},
-  {'elevation':2, 'label': 'Elevation 2'},
-  {'elevation':3, 'label': 'Elevation 3'},
-  {'elevation':4, 'label': 'Elevation 4'},
-  {'elevation':5, 'label': 'Elevation 5'},
+  {'elevation':0.0, 'label': 'Elevation 0'},
+  {'elevation':1.0, 'label': 'Elevation 1'},
+  {'elevation':2.0, 'label': 'Elevation 2'},
+  {'elevation':3.0, 'label': 'Elevation 3'},
+  {'elevation':4.0, 'label': 'Elevation 4'},
+  {'elevation':5.0, 'label': 'Elevation 5'},
 ];
 
 class CardScreen extends StatelessWidget {
@@ -15,7 +15,6 @@ class CardScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final esquemaColores = Theme.of(context).colorScheme;
     return Scaffold(
       appBar: AppBar(title: const Text("Pantalla de tarjetas")),
         body: _CardsView());
@@ -30,35 +29,41 @@ class _CardsView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final esquemaColores = Theme.of(context).colorScheme;
-    return
-        CustomCard();
+    return CustomCard();
   }
 }
 
 class CustomCard extends StatelessWidget {
   const CustomCard({
-    super.key,
-    required this.esquemaColores,
+    super.key
   });
 
-  final ColorScheme esquemaColores;
 
   @override
   Widget build(BuildContext context) {
-    final listaCards = [];
+    final esquemaColores = Theme.of(context).colorScheme;
+    final List<Widget> listaCards = [];
     for (var element in listaParams) {
-      final Card tarjeta =
-
-      Card(
+      final Card tarjeta = Card(
         color: esquemaColores.primaryContainer,
         elevation: element['elevation'],
         child: Padding(
           padding: const EdgeInsets.fromLTRB(10,5,10,10),
-          child: Text(element['label']),
+          child: Column(
+            children: [
+              Align(
+                alignment: Alignment.topRight,
+                  child: IconButton(onPressed: () {}, icon: Icon(Icons.more_vert_outlined)
+              )),
+              Align(
+                alignment: Alignment.bottomLeft,
+                  child: Text(element['label'])),
+            ],
+          ),
         ),
       );
     listaCards.add(tarjeta);
     }
-    return listaCards;
+    return Column(children: listaCards);
   }
 }
