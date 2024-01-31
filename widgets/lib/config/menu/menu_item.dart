@@ -21,5 +21,10 @@ List<MenuItem> appMenuItem=[
       titulo: "Tarjetas",
       subtitulo: "Catagolo de tarjetas",
       ruta: '/cards',
-      icono: Icons.credit_card)
+      icono: Icons.credit_card),
+  MenuItem(
+      titulo: "Indicadores de progreso",
+      subtitulo: "Lineal y Circular",
+      ruta: '/progress',
+      icono: Icons.history)
 ];
