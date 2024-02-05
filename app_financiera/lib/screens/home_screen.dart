@@ -1,7 +1,8 @@
 import 'package:app_financiera/screens/paged_screen.dart';
 import 'package:app_financiera/screens/pages_image_screen.dart';
-import 'package:app_financiera/screens/sign_screen.dart';
+import 'package:app_financiera/screens/label_screen.dart';
 import 'package:app_financiera/screens/months_screen.dart';
+import 'package:app_financiera/shared/data/local_gastos.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -54,9 +55,11 @@ class HomeScreen extends StatelessWidget {
       body: Column(
         children: [
           MonthScreen(),
-          PagedScreen(),
+          LabelScreen(gastosAnuales: gastosAnuales),
           PagesImageScreen(),
-          SignScreen(),
+          PagedScreen(gastosAnuales: gastosAnuales),
+
+
         ],
       ),
     );
