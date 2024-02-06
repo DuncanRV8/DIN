@@ -13,54 +13,52 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final esquemaColores = Theme.of(context).colorScheme;
-    return Scaffold(
-      appBar: AppBar(
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {  },
-        child: Icon(Icons.add),
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(30),
-        ),
-      ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      bottomNavigationBar: BottomAppBar(
-        color: Theme.of(context).colorScheme.primary,
-        shape: CircularNotchedRectangle(),
-        child: Container(
-          height: 20.0,
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: <Widget>[
-              IconButton(
-                  icon: FaIcon(FontAwesomeIcons.chartBar, color: esquemaColores.onPrimary,),
-                  onPressed: (){},
-              ),
-              IconButton(
-                icon: FaIcon(FontAwesomeIcons.chartPie, color: esquemaColores.onPrimary,),
-                onPressed: (){},
-              ),
-              IconButton(
-                icon: FaIcon(FontAwesomeIcons.wallet, color: esquemaColores.onPrimary,),
-                onPressed: (){},
-              ),
-              IconButton(
-                icon: Icon(Icons.settings, color: esquemaColores.onPrimary,),
-                onPressed: (){},
-              ),
-            ],
+    return SafeArea(
+      child: Scaffold(
+        floatingActionButton: FloatingActionButton(
+          onPressed: () {  },
+          child: Icon(Icons.add),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(30),
           ),
         ),
-      ),
-      body: Column(
-        children: [
-          MonthScreen(),
-          LabelScreen(gastosAnuales: gastosAnuales),
-          PagesImageScreen(),
-          PagedScreen(gastosAnuales: gastosAnuales),
-
-
-        ],
+        floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+        bottomNavigationBar: BottomAppBar(
+          color: Theme.of(context).colorScheme.primary,
+          shape: CircularNotchedRectangle(),
+          child: Container(
+            height: 20.0,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: <Widget>[
+                IconButton(
+                    icon: FaIcon(FontAwesomeIcons.chartBar, color: esquemaColores.onPrimary,),
+                    onPressed: (){},
+                ),
+                IconButton(
+                  icon: FaIcon(FontAwesomeIcons.chartPie, color: esquemaColores.onPrimary,),
+                  onPressed: (){},
+                ),
+                IconButton(
+                  icon: FaIcon(FontAwesomeIcons.wallet, color: esquemaColores.onPrimary,),
+                  onPressed: (){},
+                ),
+                IconButton(
+                  icon: Icon(Icons.settings, color: esquemaColores.onPrimary,),
+                  onPressed: (){},
+                ),
+              ],
+            ),
+          ),
+        ),
+        body: Column(
+          children: [
+            MonthScreen(),
+            LabelScreen(gastosAnuales: gastosAnuales),
+            PagesImageScreen(),
+            PagedScreen(gastosAnuales: gastosAnuales),
+          ],
+        ),
       ),
     );
   }

@@ -9,26 +9,15 @@ class PagedScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     Map<String, dynamic>? eneroData = gastosAnuales.firstWhere((gasto) => gasto['mes'] == 'enero');
 
-    if (eneroData == null) {
-      return Container(
-        child: Center(
-          child: Text('No se encontraron datos para el mes de enero'),
-        ),
-      );
-    }
-
-    // Obtener los valores de los gastos de enero
     final compras = eneroData['compras'];
     final bebida = eneroData['bebida'];
     final comida = eneroData['comida'];
     final ropa = eneroData['ropa'];
     final facturas = eneroData['facturas'];
-
-    // Color primario del tema
     final primaryColor = Theme.of(context).primaryColor;
 
     return Container(
-      height: 350.0,
+      height: 400.0,
       child: Scaffold(
         body: ListView(
           padding: EdgeInsets.all(10.0),
@@ -46,7 +35,7 @@ class PagedScreen extends StatelessWidget {
 
   Widget buildExpenseCard({required String category, required int amount, required IconData icon, required Color primaryColor}) {
     final totalGastos = gastosAnuales
-        .firstWhere((gasto) => gasto['mes'] == 'enero', orElse: () => {'compras': 0, 'bebida': 0, 'comida': 0, 'ropa': 0, 'facturas': 0});
+        .firstWhere((gasto) => gasto['mes'] == 'enero');
     final total = totalGastos['compras'] + totalGastos['bebida'] + totalGastos['comida'] + totalGastos['ropa'] + totalGastos['facturas'];
     final porcentajeGastado = (amount / total) * 100;
 
@@ -57,8 +46,8 @@ class PagedScreen extends StatelessWidget {
         subtitle: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Text('${porcentajeGastado.toStringAsFixed(2)}% gastado'),
-            Text('\$${amount.toString()}'),
+            Text('${porcentajeGastado.toStringAsFixed(0)}% gasto mensual'),
+            Text('${amount.toString()}\€'),
           ],
         ),
       ),

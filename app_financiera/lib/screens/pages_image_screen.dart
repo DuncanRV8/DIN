@@ -6,13 +6,13 @@ class PagesImageScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 170.0, // Altura limitada del PageView
+      height: 170.0,
       child: PageView.builder(
-        itemCount: 12, // Cantidad total de imágenes
+        itemCount: 12,
         itemBuilder: (context, index) {
           return Image.asset(
-            'assets/images/${index + 1}.png', // Ruta de la imagen desde los assets
-            fit: BoxFit.contain, // Ajusta la imagen para que cubra el espacio disponible
+            'assets/images/${index + 1}.png',
+            fit: BoxFit.contain,
           );
         },
       ),
