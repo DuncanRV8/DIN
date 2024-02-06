@@ -46,15 +46,26 @@ class _ControllerWidgetIndicator extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 10.0),
-      child: Row(
-        children: [
-          CircularProgressIndicator(),
-          SizedBox(width: 20),
-          Expanded(child: LinearProgressIndicator()),
-        ],
-      ),
+    return StreamBuilder(
+      stream: Stream.periodic(const Duration(milliseconds: 300),(value) => value*2/100).takeWhile((value) => value <=100),
+      builder: (BuildContext context, AsyncSnapshot<dynamic> value) {
+       final double valorProgreso = value.data ?? 0;
+
+        return Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 10.0),
+          child: Row(
+            children: [
+              CircularProgressIndicator(
+                value: valorProgreso,
+                strokeWidth: 2,
+                backgroundColor: Colors.black12,
+              ),
+              SizedBox(width: 20),
+              Expanded(child: LinearProgressIndicator(value: valorProgreso,)),
+            ],
+          ),
+        );
+      },
     );
   }
 }

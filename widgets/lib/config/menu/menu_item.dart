@@ -26,5 +26,10 @@ List<MenuItem> appMenuItem=[
       titulo: "Indicadores de progreso",
       subtitulo: "Lineal y Circular",
       ruta: '/progress',
-      icono: Icons.history)
+      icono: Icons.history),
+  MenuItem(
+      titulo: "SnackBars",
+      subtitulo: "snack bar",
+      ruta: '/snackbar',
+      icono: Icons.panorama_fish_eye_outlined)
 ];
