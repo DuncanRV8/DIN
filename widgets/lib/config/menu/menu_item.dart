@@ -31,5 +31,10 @@ List<MenuItem> appMenuItem=[
       titulo: "SnackBars",
       subtitulo: "snack bar",
       ruta: '/snackbar',
-      icono: Icons.panorama_fish_eye_outlined)
+      icono: Icons.panorama_fish_eye_outlined),
+  MenuItem(
+      titulo: "Animated",
+      subtitulo: "animated",
+      ruta: '/animated',
+      icono: Icons.ac_unit_outlined)
 ];
