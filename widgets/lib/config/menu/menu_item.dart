@@ -36,5 +36,10 @@ List<MenuItem> appMenuItem=[
       titulo: "Animated",
       subtitulo: "animated",
       ruta: '/animated',
-      icono: Icons.ac_unit_outlined)
+      icono: Icons.ac_unit_outlined),
+  MenuItem(
+      titulo: "Controles de Interfa< de usuario",
+      subtitulo: "Switches, radionButtons y checkbox",
+      ruta: '/uicontrols',
+      icono: Icons.abc),
 ];
