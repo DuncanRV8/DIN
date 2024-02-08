@@ -42,4 +42,14 @@ List<MenuItem> appMenuItem=[
       subtitulo: "Switches, radionButtons y checkbox",
       ruta: '/uicontrols',
       icono: Icons.abc),
+  MenuItem(
+      titulo: "Tutorial de aplicacioens",
+      subtitulo: "Tutorial de aplicacioens",
+      ruta: '/tutorial',
+      icono: Icons.add_alarm_rounded),
+  MenuItem(
+      titulo: "Scroll infinito y pull to refresh",
+      subtitulo: "InfiniteScroll",
+      ruta: '/infinite',
+      icono: Icons.receipt_long),
 ];
