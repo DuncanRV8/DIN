@@ -52,4 +52,9 @@ List<MenuItem> appMenuItem=[
       subtitulo: "InfiniteScroll",
       ruta: '/infinite',
       icono: Icons.receipt_long),
+  MenuItem(
+      titulo: "Contador Riverpod",
+      subtitulo: "Contador Riverpod",
+      ruta: '/counter',
+      icono: Icons.receipt_long),
 ];
