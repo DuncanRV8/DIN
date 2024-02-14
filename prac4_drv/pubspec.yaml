@@ -31,6 +31,7 @@ dependencies:
   flutter:
     sdk: flutter
   animate_do: ^3.3.3
+  card_swiper: ^3.0.1
 
 
   # The following adds the Cupertino Icons font to your application.
@@ -40,7 +41,6 @@ dependencies:
   dio: ^5.4.0
 
 dev_dependencies:
-  card_swiper: ^3.0.1
   flutter_test:
     sdk: flutter
 
