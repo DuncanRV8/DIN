@@ -1,4 +1,3 @@
-import 'dart:ffi';
 
 class Peli {
   final bool adult;
@@ -35,7 +34,7 @@ class Peli {
 
   factory Peli.fromJson(Map<String, dynamic> json) {
     return Peli(
-      adult: json['adult'] as bool, // Convertir a booleano
+      adult: json['adult'] as bool,
       backdropPath: json['backdrop_path'] as String,
       genreIds: List<int>.from(json['genre_ids']),
       id: json['id'] as int,

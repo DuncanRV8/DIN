@@ -12,19 +12,19 @@ class DetallePeliculaScreen extends StatefulWidget {
 }
 
 class _DetallePeliculaScreenState extends State<DetallePeliculaScreen> {
-  bool _showOriginalTitle = false;
+  bool _mostrarTituloOriginal = false;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: _showOriginalTitle ? Text(widget.pelicula.originalTitle) : Text(widget.pelicula.title),
+        title: _mostrarTituloOriginal ? Text(widget.pelicula.originalTitle) : Text(widget.pelicula.title),
         actions: [
           Switch(
-              value: _showOriginalTitle,
+              value: _mostrarTituloOriginal,
               onChanged: (value) {
                 setState(() {
-                  _showOriginalTitle = value;
+                  _mostrarTituloOriginal = value;
                 });
               })
         ],
@@ -46,15 +46,11 @@ class _DetallePeliculaScreenState extends State<DetallePeliculaScreen> {
               style: const TextStyle(fontSize: 18),
             ),
             const SizedBox(height: 10),
-            const Text(
-              'Valoración:',
-              style: TextStyle(fontSize: 18),
+            Padding(
+              padding: const EdgeInsets.fromLTRB(75.0, 0.0, 0.0, 0.0),
+              child: Valoration(),
             ),
-            LinearProgressIndicator(
-              value: widget.pelicula.voteAverage / 10,
-              valueColor: const AlwaysStoppedAnimation<Color>(Colors.blue),
-              backgroundColor: Colors.grey[300],
-            ),
+
             const SizedBox(height: 10),
             Padding(
               padding: const EdgeInsets.all(20.0),
@@ -67,6 +63,25 @@ class _DetallePeliculaScreenState extends State<DetallePeliculaScreen> {
           ],
         ),
       ),
+    );
+  }
+
+  Row Valoration() {
+    return Row(
+      children: [
+         const Text('Valoración:   ',
+                style: TextStyle(fontSize: 18),
+              ),
+        SizedBox(
+          height: 7,
+          width: 60,
+          child: LinearProgressIndicator(
+            value: widget.pelicula.voteAverage / 10,
+            valueColor: const AlwaysStoppedAnimation<Color>(Colors.blue),
+            backgroundColor: Colors.grey[300],
+          ),
+        ),
+      ],
     );
   }
 

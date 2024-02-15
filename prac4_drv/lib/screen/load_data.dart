@@ -16,7 +16,7 @@ class DataLoader extends StatefulWidget {
 class _DataLoaderState extends State<DataLoader> {
   late List<Peli> peliculasEnCartelera;
   late List<Peli> proximosEstrenos;
-  bool isLoading = true;
+  bool estaCargando = true;
 
   @override
   void initState() {
@@ -26,16 +26,15 @@ class _DataLoaderState extends State<DataLoader> {
 
   Future<void> cargarPeliculas() async {
     Response responseNowPlaying = await Dio().get(
-        'https://api.themoviedb.org/3/movie/now_playing?api_key=6994eac03fece4d12f6f450765b1b53a&language=en-US&page=1');
+        'https://api.themoviedb.org/3/movie/now_playing?api_key=6994eac03fece4d12f6f450765b1b53a&language=es-ES&page=1');
 
     Response responseUpcoming = await Dio().get(
-        'https://api.themoviedb.org/3/movie/upcoming?api_key=6994eac03fece4d12f6f450765b1b53a&language=en-US&page=1');
+        'https://api.themoviedb.org/3/movie/upcoming?api_key=6994eac03fece4d12f6f450765b1b53a&language=es-ES&page=1');
 
     setState(() {
-      peliculasEnCartelera =
-          _mapearPeliculas(responseNowPlaying.data['results']);
+      peliculasEnCartelera = _mapearPeliculas(responseNowPlaying.data['results']);
       proximosEstrenos = _mapearPeliculas(responseUpcoming.data['results']);
-      isLoading = false;
+      estaCargando = false;
     });
   }
 
@@ -49,7 +48,7 @@ class _DataLoaderState extends State<DataLoader> {
 
   @override
   Widget build(BuildContext context) {
-    return isLoading
+    return estaCargando
         ? Center(
             child: CircularProgressIndicator(
               valueColor:
@@ -63,11 +62,9 @@ class _DataLoaderState extends State<DataLoader> {
                 padding: EdgeInsets.all(8.0),
                 child: Text('Ya disponibles',
                     style:
-                        TextStyle(fontSize: 20, fontWeight: FontWeight.bold)
-                ),
+                        TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
               ),
-              Expanded(
-                child: Container(
+              Container(
                   height: 300,
                   child: Swiper(
                     itemCount: peliculasEnCartelera.length,
@@ -97,7 +94,7 @@ class _DataLoaderState extends State<DataLoader> {
                                     color: Colors.grey.withOpacity(0.5),
                                     spreadRadius: 3,
                                     blurRadius: 5,
-                                    offset: const Offset(0, 3),
+                                    offset: const Offset(9, 0),
                                   ),
                                 ],
                               ),
@@ -116,7 +113,6 @@ class _DataLoaderState extends State<DataLoader> {
                     pagination: SwiperPagination(),
                   ),
                 ),
-              ),
               const SizedBox(height: 60),
               const Padding(
                 padding: EdgeInsets.all(8.0),
@@ -145,7 +141,7 @@ class _DataLoaderState extends State<DataLoader> {
                                 color: Colors.grey.withOpacity(0.5),
                                 spreadRadius: 3,
                                 blurRadius: 5,
-                                offset: Offset(0, 3), // changes position of shadow
+                                offset: Offset(0, 3),
                               ),
                             ],
                           ),
